@@ -80,7 +80,21 @@
 }
 
 .bullet {
-	background-image: url("Bullet.png");
+	background-image: url("Bullet_w.png");
+	background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bullet_o {
+	background-image: url("Bullet_o.png");
+	background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bullet_r {
+	background-image: url("Bullet_r.png");
 	background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

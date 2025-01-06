@@ -126,27 +126,69 @@ function shoot(e) {
     let currentLaserIndex = currentShooterIndex
 
     function moveLaser() {
-        squares[currentLaserIndex].classList.remove("bullet")
-        currentLaserIndex -= width
-        squares[currentLaserIndex].classList.add("bullet")
-
-        if ((squares[currentLaserIndex].classList.contains("crow1_r")) || (squares[currentLaserIndex].classList.contains("crow1_l"))) {
+        if(init<=50){
             squares[currentLaserIndex].classList.remove("bullet")
-            squares[currentLaserIndex].classList.remove("crow1_r")
-            squares[currentLaserIndex].classList.remove("crow1_l")
-            squares[currentLaserIndex].classList.add("boom")
+            currentLaserIndex -= width
+            squares[currentLaserIndex].classList.add("bullet")
 
-            setTimeout(() => squares[currentLaserIndex].classList.remove("boom"), 300)
-            clearInterval(laserId)
+            if ((squares[currentLaserIndex].classList.contains("crow1_r")) || (squares[currentLaserIndex].classList.contains("crow1_l"))) {
+                squares[currentLaserIndex].classList.remove("bullet")
+                squares[currentLaserIndex].classList.remove("crow1_r")
+                squares[currentLaserIndex].classList.remove("crow1_l")
+                squares[currentLaserIndex].classList.add("boom")
 
-            const alienRemoved = alienInvaders.indexOf(currentLaserIndex)
-            aliensRemoved.push(alienRemoved)
-            results++
-            resultDisplay.innerHTML = `Crows Murdered: ${results}`
+                setTimeout(() => squares[currentLaserIndex].classList.remove("boom"), 300)
+                clearInterval(laserId)
+
+                const alienRemoved = alienInvaders.indexOf(currentLaserIndex)
+                aliensRemoved.push(alienRemoved)
+                results++
+                resultDisplay.innerHTML = `Crows Murdered: ${results}`
+            }
+        } else if(init<=75){
+            squares[currentLaserIndex].classList.remove("bullet")
+            squares[currentLaserIndex].classList.remove("bullet_o")
+            currentLaserIndex -= width
+            squares[currentLaserIndex].classList.add("bullet_o")
+
+            if ((squares[currentLaserIndex].classList.contains("crow1_r")) || (squares[currentLaserIndex].classList.contains("crow1_l"))) {
+                squares[currentLaserIndex].classList.remove("bullet_o")
+                squares[currentLaserIndex].classList.remove("crow1_r")
+                squares[currentLaserIndex].classList.remove("crow1_l")
+                squares[currentLaserIndex].classList.add("boom")
+
+                setTimeout(() => squares[currentLaserIndex].classList.remove("boom"), 300)
+                clearInterval(laserId)
+
+                const alienRemoved = alienInvaders.indexOf(currentLaserIndex)
+                aliensRemoved.push(alienRemoved)
+                results++
+                resultDisplay.innerHTML = `Crows Murdered: ${results}`
+            }
+        } else{
+            squares[currentLaserIndex].classList.remove("bullet_o")
+            squares[currentLaserIndex].classList.remove("bullet_r")
+            currentLaserIndex -= width
+            squares[currentLaserIndex].classList.add("bullet_r")
+
+            if ((squares[currentLaserIndex].classList.contains("crow1_r")) || (squares[currentLaserIndex].classList.contains("crow1_l"))) {
+                squares[currentLaserIndex].classList.remove("bullet_r")
+                squares[currentLaserIndex].classList.remove("crow1_r")
+                squares[currentLaserIndex].classList.remove("crow1_l")
+                squares[currentLaserIndex].classList.add("boom")
+
+                setTimeout(() => squares[currentLaserIndex].classList.remove("boom"), 300)
+                clearInterval(laserId)
+
+                const alienRemoved = alienInvaders.indexOf(currentLaserIndex)
+                aliensRemoved.push(alienRemoved)
+                results++
+                resultDisplay.innerHTML = `Crows Murdered: ${results}`
+            }
         }
     }
 
-    if (e.key === " ") {
+    if (e.key === " " && init<100) {
         laserId = setInterval(moveLaser, 100)
     }
 }
@@ -176,7 +218,7 @@ function makeItShit(){
     }
 }
 
-makeItRain = setInterval(makeItShit, 500)
+makeItRain = setInterval(makeItShit, 300)
 
 function shitCounter(){
     if(init<=100 && !won){
@@ -186,4 +228,4 @@ function shitCounter(){
     else resultDisplay.innerHTML = "YOU LOST"
 }
 
-setInterval(shitCounter, 500)
+setInterval(shitCounter, 300)
