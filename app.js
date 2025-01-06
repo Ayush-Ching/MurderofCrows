@@ -226,6 +226,38 @@ function shitCounter(){
         init++
     }
     else resultDisplay.innerHTML = "YOU LOST"
+
+    if(init>=10 && init<20){
+        grid.classList.remove("grid")
+        grid.classList.add("grid10")
+    } else if(init>=20 && init<30){
+        grid.classList.remove("grid10")
+        grid.classList.add("grid20")
+    } else if(init>=30 && init<40){
+        grid.classList.remove("grid20")
+        grid.classList.add("grid30")
+    } else if(init>=40 && init<50){
+        grid.classList.remove("grid30")
+        grid.classList.add("grid40")
+    } else if(init>=50 && init<60){
+        grid.classList.remove("grid40")
+        grid.classList.add("grid50")
+    } else if(init>=60 && init<70){
+        grid.classList.remove("grid50")
+        grid.classList.add("grid60")
+    } else if(init>=70 && init<80){
+        grid.classList.remove("grid60")
+        grid.classList.add("grid70")
+    } else if(init>=80 && init<90){
+        grid.classList.remove("grid70")
+        grid.classList.add("grid80")
+    } else if(init>=90 && init<100){
+        grid.classList.remove("grid80")
+        grid.classList.add("grid90")
+    } else if(init>=100){
+        grid.classList.remove("grid90")
+        grid.classList.add("grid100")
+    }
 }
 
 setInterval(shitCounter, 300)
