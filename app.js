@@ -12,6 +12,9 @@ let isGoingRight = true
 let direction = 1
 let results = 0
 let won = false
+let cooldown = 300
+let lastShot = new Date("2069-01-06T12:00:00");
+let currentShot
 
 for (let i = 0; i < width * width; i++) {
     const square = document.createElement("div")
@@ -189,7 +192,11 @@ function shoot(e) {
     }
 
     if (e.key === " " && init<100) {
-        laserId = setInterval(moveLaser, 100)
+        currentShot = Date.now()
+        // if(lastShot - currentShot >= cooldown){
+            laserId = setInterval(moveLaser, 100)
+            lastShot = currentShot
+        // }
     }
 }
 
@@ -224,8 +231,8 @@ function shitCounter(){
     if(init<=100 && !won){
         timer.innerHTML = `Amount of Shit on Statue: ${init}%`
         init++
-    }
-    else resultDisplay.innerHTML = "YOU LOST"
+    } else if(won) resultDisplay.innerHTML = "YOU WON"
+    else if(!won) resultDisplay.innerHTML = "YOU WON"
 
     if(init>=10 && init<20){
         grid.classList.remove("grid")
