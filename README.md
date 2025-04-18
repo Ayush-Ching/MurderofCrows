@@ -1,6 +1,6 @@
 # MurderofCrows
-Just a game I made for fun
-`https://ayush-ching.github.io/MurderofCrows/`
+Just a game I made for fun<br>
+Visit `https://ayush-ching.github.io/MurderofCrows/` to play.
 
 Acknowledgements
 
